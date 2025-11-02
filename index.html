@@ -1,30 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <title>Document</title>
 </head>
+
 <body>
     <div id="app">
-        <p>Le nombre d'user est de {{users.length}} </p>
+        <br>
+        <input type="text" v-model.lazy ="title" placeholder="titre"> <br> <br>
+        <p>Est publie: <span><input type="checkbox" v-model="isPublished"></span></p>
+        <select v-model="author" >
+            <option value="none">choisissez votre statut</option>
+            <option value="semih">semih</option>
+            <option value="youssef">youssef</option>
+            <option value="aymen">aymen</option>
+            <option value="yasmine">yasmine</option>
+            <option value="dorian">dorian</option>
+        </select>
+
+        <div>
+            <input type="radio" v-model="category" value="pizza"> <span>pizza</span> <br>
+            <input type="radio" v-model="category" value="monster"> <span>monster </span> <br>
+            <input type="radio" v-model="category" value="burger"> <span>burger</span><br>
+        </div>
+        <br>
+    <div>
+        <input type="checkbox" value="horror" v-model="tags"><span> horror</span> <br>
+        <input type="checkbox" value="comedie" v-model="tags"><span> comedie</span> <br>
+        <input type="checkbox" value="action" v-model="tags"> <span>action</span> <br>
     </div>
+    <br>
+    <div>
+        Détails du post:
+        <ul>
+            <li>Titre: {{title}}</li>
+            <li>publié: {{isPublished}}</li>
+            <li>Auteur: {{author}}</li>
+            <li>Categorie: {{category}}</li>
+            <li>Tags: {{tags.join(', ')}}</li>
+        </ul>
+    </div>
+    </div>
+
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
         Vue.createApp({
-            data(){
-                return{
-                    users: [
-                        {nom:"tokalak",prenom:"semih"},
-                        {nom:"hatoufi",prenom:"youssef"},
-                        {nom:"elfaiz",prenom:"khalil"},
-                        {nom:"balou",prenom:"aymen"}
-                    ]
+            data() {
+                return {
+                    title: "",
+                    isPublished: false,
+                    author: "none",
+                    category: "",
+                    tags: [
+
+                    ],
                 }
             }
         })
             .mount('#app');
     </script>
 </body>
+
 </html>
