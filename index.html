@@ -8,16 +8,8 @@
 </head>
 <body>
   
-<div id="app" class="container" style="margin-top:30px;">
-  <!-- Parcours d'un tableau indexé -->
-  <ul>
-    <li v-for="(num, index) in nums" :key="num">
-      <h2>{{ num }}</h2>
-      <input type="text" placeholder="Entrez quelque chose" />
-    </li>
-  </ul>
-
-  <button class="btn btn-primary" @click="ajouter">Ajouter la date</button>
+<div id="app" >
+  <div>{{parler("semih")}}</div>
 </div>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -25,13 +17,12 @@
 Vue.createApp({
   data() {
     return {
-      nums: [1, 2, 3]
+    
     }
   },
   methods: {
-    ajouter() {
-      // On ajoute la date actuelle au début du tableau
-      this.nums.unshift(new Date().toLocaleString());
+    parler(data){
+        return `salut ${data}`
     }
   }
 }).mount('#app');
