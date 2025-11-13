@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+  <input type="text" v-model.lazy="question" placeholder="" />
+  <div>{{ reponse }}</div>
+</div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>Vue.createApp({
+  data () {
+    return {
+      question: '',
+      reponse: `Je n'ai pas de réponse à votre non question`
+    }
+  }, 
+  watch: {
+    question (newQuestion, oldQuestion) {
+      this.reponse = 'Waiting for you to stop typing...'
+    }
+  }
+
+}).mount('#app');</script>
+</body>
+</html>
